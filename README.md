@@ -121,6 +121,10 @@ Arithmetical	+	              Addition operator	        +
               ^ or **	        Exponent operator	         **
               %%	            Modulus operator (finds the remainder of the first element divided by the second)	%
 
+![](Relational.png)
+![](Logical.png)
+![](Miscellany.png)
+
 
 
 
