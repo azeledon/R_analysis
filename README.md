@@ -126,6 +126,65 @@ Arithmetical	+	              Addition operator	        +
 ![](Miscellany.png)
 
 
+One of the most common ways to filter and subset a dataset in R is to use bracket notation. To use bracket notation to filter a data frame, we can supply a logical statement to assert our row and columns.
+
+For example, if we want to filter our used car data demo_table2 so that we only have rows where the vehicle price is greater than $10,000, we would use the following statement:
+
+```filter_table <- demo_table2[demo_table2$price > 10000,]```
+
+This filter statement generates a view-only data frame tab listing vehicles priced greater than $10,000
+
+When our logical statements are simple (using only one or two operators), bracket notation is easy to read and write. However, if we need to filter and subset our data using more complicated logic, bracket notation can become cumbersome. In these cases, we'll use an R function such as ```subset()``` to filter our data.
+
+## Subset Data in R
+
+The subset() function uses a few arguments to subset and filter a two-dimensional R data structure:
+
+- x
+- subset
+- select
+
+For example, if we want to create a more elaborate filtered dataset from our used car data demo_table2 where price > 10000, drive == 4wd, and "clean" %in% title_status, we would use the following statement:
+
+```filter_table2 <- subset(demo_table2, price > 10000 & drive == "4wd" & "clean" %in% title_status) #filter by price and drivetrain```
+
+## Sample Data in R
+
+Often in data science, we need to generate a random sample of data points from a larger dataset. For example, some models might take too long to run on a massive dataset and require a smaller sample of the data.
+
+Using filtering and subsetting methods may be appropriate for certain cases (such as looking at data within a specific timeframe), but usually we'll want to randomly sample our larger data to reduce bias. In these cases, we can use the built-in function sample(). Let's try it now.
+
+The sample() function uses a few arguments to create a sampled vector from a larger vector:
+
+- x
+- size
+- replace
+
+If we want to sample a large vector and create a smaller vector, we can set the vector to "x":
+
+```sample(c("cow", "deer", "pig", "chicken", "duck", "sheep", "dog"), 4)```
+
+When it comes to sampling a two-dimensional data structure, we need to supply the index of each row we want to sample. This process can be completed in three steps:
+
+1. Create a numerical vector that is the same length as the number of rows in the data frame using the colon (:) operator.
+2. Use the sample() function to sample a list of indices from our first vector.
+3. Use bracket notation to retrieve data frame rows from sample list.
+
+So, first capture the number of rows in demo_table in a variable. The nrow() function counts the number of rows in a dataframe.
+
+```num_rows <- 1:nrow(demo_table)```
+
+Next, sample 3 of those rows, as shown in this code:
+
+``` sample_rows <- sample(num_rows, 3)```
+
+Finally, retrieve the requested data within the demo_table:
+
+``` demo_table[sample_rows,]```
+
+If we want to combine all three steps in a single R statement, our code would be as follows:
+
+```demo_table[sample(1:nrow(demo_table), 3),]```
 
 
  
