@@ -289,6 +289,18 @@ Therefore, if we want to spread out our previous long-format data frame back to 
 
 And if we want to check if our newly created wide-format table is exactly the same as our original demo_table3, we can use R's ```all.equal()``` function:
 
+![](allequall.png)
+
+If you ever compare two data frames that you expect to be equal, and the all.equal() function tells you they're not as the above example shows. Try sorting the columns of both data frames using the order() and colnames() functions and bracket notation:
+
+```table <-demo_table3[,order(colnames(wide_table))]```
+
+Or, sort the columns using the colnames() functions and bracket notation only:
+
+```table <- demo_table3[,(colnames(wide_table))]```
+
+
+
 
 
 
