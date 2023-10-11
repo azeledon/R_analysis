@@ -84,6 +84,7 @@ Now that we know how to create data structures and data frames in R, let's learn
 There are many ways to select and subset data in R, depending on what data structure is being used. When it comes to vectors, the easiest way to select data is using the bracket ("[ ]") notation. For example, if we have a numeric vector x with 10 values and want to select the third value, we would use the following statements:
 
 ```x <- c(3, 3, 2, 2, 5, 5, 8, 8, 9)```
+
 ```> x[3]```
 
 Unlike Python, R's index starts at 1. So, the third element would be ```index = 3```
@@ -91,6 +92,36 @@ Unlike Python, R's index starts at 1. So, the third element would be ```index = 
 You can also use bracket notation to select data from two-dimensional data structures, such as matrices, data frames, and tibbles. For example, let's look at our ```demo_table``` again:
 
 ![](demo_table.png)
+
+If we want to select the third row of the Year column using bracket notation, our statement would appear as follows:
+
+```demo_table[3,"Year"]```
+
+Because R keeps track of both the row indices as well as the column indices as integers under the hood, we can also select the same data using just number indices:
+
+```demo_table[3,3]```
+
+There is a third way to select data from an R data frame that behaves very similarly to Pandas. By using the $ operator, we can select columns from any two-dimensional R data structure as a single vector, similar to selecting a series from a Pandas DataFrame. For example, if we want to select the vector of vehicle classes from demo_table, we would use the following statement:
+
+```demo_table$"Vehicle_Class"```
+
+Once we have selected the single vector, we can use bracket notation to select a single value.
+
+```demo_table$"Vehicle_Class"[2]```
+
+## Select Data with Logic
+
+Just as it is for selecting single values, there are multiple ways to subset and filter data from our larger data frames. As with most programming languages, we use a combination of operators and logical statements to tell R what data to filter. Thankfully, most operators are the same between R and Python, as shown below:
+
+Category	    R Operator    	Description	              Python Equivalent
+Arithmetical	+	              Addition operator	        +
+              -	              Subtraction operator	    -
+              *	              Multiplication operator	   *
+              /	              Division operator	         /
+              ^ or **	        Exponent operator	         **
+              %%	            Modulus operator (finds the remainder of the first element divided by the second)	%
+
+
 
 
  
