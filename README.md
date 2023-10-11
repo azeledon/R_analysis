@@ -200,9 +200,9 @@ By chaining functions together, the user does not need to assign intermediate ve
 
 Type the following code into the R console to look at the mutate() documentation in the Help pane:
 
-```library(tidyverse)
+```library(tidyverse)```
 
- ?mutate()```
+ ```?mutate()```
 
 The documentation for the mutate() function (generally any dplyr function) is a little obscure, but it makes more sense looking at the examples. We can think of the mutate() function as a series of smaller assignment statements that are separated by commas. Each of the assigned names appears as a new column in our raw data frame.
 
