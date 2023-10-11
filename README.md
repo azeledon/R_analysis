@@ -58,3 +58,41 @@ To practice reading in a CSV file, first download our sample CSV file demo.csv
 
 **Command + Enter (Mac)**
 **CTRL + Enter (Windows)**
+
+ ### what if we want to bring in a dataset from an application programming interface (API) query?
+
+ The JSON format is one of the most common data formats returned from a URL request. Although native JSON data can be easier to work with in Python, many data scientists still prefer to use R for their data analysis. To accommodate this need, R developers created the ```jsonlite``` library to read in JSON data structures and convert them to an R data frame. Because the ```jsonlite``` library was not built into R, we must import it into our R environment.
+ To import a library into R, we'll use the ```library(package)``` function. Just like in Python, it's good practice to import any required libraries at the top of our RScript.
+ Let's try loading in our installed ```jsonlite``` package using the ```library(jsonlite)``` function. Be sure to write the statement in your RScript and then send the statement to your R console (Command + Enter for Mac or CTRL + Enter for Windows).
+
+- Now that we have successfully imported our ```jsonlite``` package, we can use the ```fromJSON()``` function to read in a JSON file into R.
+
+- First, type the following code into the R console to look at the ```fromJSON()``` documentation in the Help pane:
+
+```?fromJSON()```
+
+As we can see, we only need to provide the txt argument to properly read in a JSON file into R because the other parameters have default values indicated with equations (e.g. simplifyVector=True). ```txt``` is the file path of the JSON file on our machine. Alternatively, we can provide the ```fromJSON()``` function a JSON URL directly. Now let's practice reading in our first JSON file.
+
+Place the downloaded data file in your active working directory. Next, use ```fromJSON()``` in our source RScript pane to read in the used car data into our R environment, as follows:
+
+```demo_table2 <- fromJSON(txt='demo.json')```
+
+Now that we know how to create data structures and data frames in R, let's learn how to **slice and sample** our datasets.
+
+## Select Data in R
+
+There are many ways to select and subset data in R, depending on what data structure is being used. When it comes to vectors, the easiest way to select data is using the bracket ("[ ]") notation. For example, if we have a numeric vector x with 10 values and want to select the third value, we would use the following statements:
+
+```x <- c(3, 3, 2, 2, 5, 5, 8, 8, 9)```
+```> x[3]```
+
+Unlike Python, R's index starts at 1. So, the third element would be ```index = 3```
+
+You can also use bracket notation to select data from two-dimensional data structures, such as matrices, data frames, and tibbles. For example, let's look at our ```demo_table``` again:
+
+![](demo_table.png)
+
+
+ 
+ 
+
